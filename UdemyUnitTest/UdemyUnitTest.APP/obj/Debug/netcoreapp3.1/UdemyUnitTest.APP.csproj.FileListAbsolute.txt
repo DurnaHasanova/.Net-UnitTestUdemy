@@ -1,0 +1,9 @@
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\bin\Debug\netcoreapp3.1\UdemyUnitTest.APP.deps.json
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\bin\Debug\netcoreapp3.1\UdemyUnitTest.APP.dll
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\bin\Debug\netcoreapp3.1\UdemyUnitTest.APP.pdb
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\obj\Debug\netcoreapp3.1\UdemyUnitTest.APP.csprojAssemblyReference.cache
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\obj\Debug\netcoreapp3.1\UdemyUnitTest.APP.AssemblyInfoInputs.cache
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\obj\Debug\netcoreapp3.1\UdemyUnitTest.APP.AssemblyInfo.cs
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\obj\Debug\netcoreapp3.1\UdemyUnitTest.APP.csproj.CoreCompileInputs.cache
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\obj\Debug\netcoreapp3.1\UdemyUnitTest.APP.dll
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.APP\obj\Debug\netcoreapp3.1\UdemyUnitTest.APP.pdb
