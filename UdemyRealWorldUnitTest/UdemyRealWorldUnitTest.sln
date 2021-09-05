@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyRealWorldUnitTest.WEB", "UdemyRealWorldUnitTest.WEB\UdemyRealWorldUnitTest.WEB.csproj", "{7F39C264-48C9-45B2-B014-1F9EA621F031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UdemyRealWorldUnitTest.WEB", "UdemyRealWorldUnitTest.WEB\UdemyRealWorldUnitTest.WEB.csproj", "{7F39C264-48C9-45B2-B014-1F9EA621F031}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UdemyRealWorldUnitTest.TEST", "UdemyRealWorldUnitTest.TEST\UdemyRealWorldUnitTest.TEST.csproj", "{81D883A3-FA56-4DC0-AC05-0DA2EB59BA59}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{7F39C264-48C9-45B2-B014-1F9EA621F031}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F39C264-48C9-45B2-B014-1F9EA621F031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F39C264-48C9-45B2-B014-1F9EA621F031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D883A3-FA56-4DC0-AC05-0DA2EB59BA59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D883A3-FA56-4DC0-AC05-0DA2EB59BA59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D883A3-FA56-4DC0-AC05-0DA2EB59BA59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D883A3-FA56-4DC0-AC05-0DA2EB59BA59}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
