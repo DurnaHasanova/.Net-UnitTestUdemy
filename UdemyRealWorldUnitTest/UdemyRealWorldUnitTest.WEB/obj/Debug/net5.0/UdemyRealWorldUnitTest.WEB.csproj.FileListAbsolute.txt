@@ -169,3 +169,4 @@ C:\Users\99450\source\repos\.Net-UnitTestUdemy\UdemyRealWorldUnitTest\UdemyRealW
 C:\Users\99450\source\repos\.Net-UnitTestUdemy\UdemyRealWorldUnitTest\UdemyRealWorldUnitTest.WEB\obj\Debug\net5.0\Razor\Views\Products\Details.cshtml.g.cs
 C:\Users\99450\source\repos\.Net-UnitTestUdemy\UdemyRealWorldUnitTest\UdemyRealWorldUnitTest.WEB\obj\Debug\net5.0\Razor\Views\Products\Edit.cshtml.g.cs
 C:\Users\99450\source\repos\.Net-UnitTestUdemy\UdemyRealWorldUnitTest\UdemyRealWorldUnitTest.WEB\obj\Debug\net5.0\Razor\Views\Products\Index.cshtml.g.cs
+C:\Users\99450\source\repos\.Net-UnitTestUdemy\UdemyRealWorldUnitTest\UdemyRealWorldUnitTest.WEB\obj\Debug\net5.0\UdemyRealWorldUnitTest.WEB.csprojAssemblyReference.cache
