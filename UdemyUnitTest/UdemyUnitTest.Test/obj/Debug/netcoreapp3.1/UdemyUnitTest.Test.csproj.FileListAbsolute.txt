@@ -96,3 +96,5 @@ C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.Test\
 C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.Test\obj\Debug\netcoreapp3.1\UdemyUnitTest.Test.dll
 C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.Test\obj\Debug\netcoreapp3.1\UdemyUnitTest.Test.pdb
 C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.Test\obj\Debug\netcoreapp3.1\UdemyUnitTest.Test.genruntimeconfig.cache
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.Test\bin\Debug\netcoreapp3.1\Castle.Core.dll
+C:\Users\99450\Source\Repos\.Net-UnitTestUdemy\UdemyUnitTest\UdemyUnitTest.Test\bin\Debug\netcoreapp3.1\Moq.dll
