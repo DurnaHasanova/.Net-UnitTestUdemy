@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Moq;
 using System;
 using System.Collections.Generic;
@@ -137,6 +138,98 @@ namespace UdemyRealWorldUnitTest.TEST
 			var result = await _productController.Create(_products.First());
 
 			_repositoryMock.Verify(repo => repo.Create(It.IsAny<Product>()), Times.Never);
+		}
+
+		[Fact]
+		public async void Edit_IdIsNull_ReturnNotFound()
+		{
+			var result = await _productController.Edit(null);
+
+			Assert.IsType<NotFoundResult>(result);
+		}
+
+		[Fact]
+		public async void Edit_InvalidId_ReturnNotFound()
+		{
+			Product product = null;
+			_repositoryMock.Setup(x => x.GetById(4)).ReturnsAsync(product);
+			var result = await _productController.Edit(4);
+
+			var statusCode = Assert.IsType<NotFoundResult>(result);
+			Assert.Equal(404, statusCode.StatusCode);
+		}
+
+		[Theory]
+		[InlineData(2)]
+		public async void Edit_ValidId_ReturnViewAndProduct(int id)
+		{
+			Product product = _products.FirstOrDefault(x => x.Id == id);
+			_repositoryMock.Setup(x => x.GetById(id)).ReturnsAsync(product);
+			var result = await _productController.Edit(id);
+
+			var view = Assert.IsType<ViewResult>(result);
+			var assign = Assert.IsAssignableFrom<Product>(view.Model);
+			Assert.Equal(id, assign.Id);
+		}
+
+		[Theory]
+		[InlineData(2)]
+		public async void EditPOST_IdIsNotEqualProductId_ReturnRedirectToIndex(int id)
+		{
+			var result = await _productController.Edit(id, _products.First());
+
+			var redirect = Assert.IsType<RedirectToActionResult>(result);
+
+			Assert.Equal("Index", redirect.ActionName);
+		}
+
+		[Theory]
+		[InlineData(1)]
+		public async void EditPost_InvalidModel_ReturnRedirectToIndex(int id)
+		{
+			_productController.ModelState.AddModelError("Name", "Has Error");
+
+			var result = await _productController.Edit(id, _products.FirstOrDefault(x => x.Id == id));
+
+			var view = Assert.IsType<ViewResult>(result);
+
+			Assert.Equal(_products.FirstOrDefault(x => x.Id == id), view.Model);
+		}
+
+		[Theory]
+		[InlineData(1)]
+		public async void EditPost_ValidModel_ReturnRedirectToIndex(int id)
+		{
+			var result = await _productController.Edit(id, _products.FirstOrDefault(x => x.Id == id));
+
+			var view = Assert.IsType<RedirectToActionResult>(result);
+
+			Assert.Equal("Index", view.ActionName);
+		}
+
+		[Theory]
+		[InlineData(1)]
+		public async void EditPost_ValidModel_ThrowDbCuncerrencyException(int id)
+		{
+			DbUpdateConcurrencyException ex = new DbUpdateConcurrencyException();
+			_repositoryMock.Setup(x => x.Update(_products.FirstOrDefault(x => x.Id == id))).Throws(ex);
+
+			var result = await _productController.Edit(id, _products.FirstOrDefault(x => x.Id == id));
+
+			var view = Assert.IsType<RedirectToActionResult>(result);
+		}
+
+		[Theory]
+		[InlineData(1)]
+		public async void EditPost_ValidModel_UpdateMethodExecute(int id)
+		{
+			var product = _products.FirstOrDefault(x => x.Id == id);
+
+			_repositoryMock.Setup(x => x.Update(product));
+
+			await _productController.Edit(id, product);
+
+			_repositoryMock.Verify(repo => repo.Update(It.IsAny<Product>()), Times.Once);
 		}
 	}
 }

@@ -88,7 +88,7 @@ namespace UdemyRealWorldUnitTest.WEB.Controllers
 		{
 			if (id != product.Id)
 			{
-				return NotFound();
+				return RedirectToAction(nameof(Index));
 			}
 
 			if (ModelState.IsValid)
