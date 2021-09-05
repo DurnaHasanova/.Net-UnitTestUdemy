@@ -58,16 +58,18 @@ namespace UdemyUnitTest.Test
 		}
 
 		[Theory]
-		[InlineData(2, 3, 6)]
-		[InlineData(5, 3, 15)]
-		[InlineData(2, 4, 8)]
-		[InlineData(3, 3, 9)]
+		[InlineData(3, 5, 15)]
 		public void Multip_SimpleValue_ReturnTotalValue(int a, int b, int expectedTotal)
 		{
+			int actualMultip = 0;
 			// add metodunu taklidini olusturuyoryz, esas metod calismir esas kod calismir sahte calisir
-			myMock.Setup(x => x.multiple(a, b)).Returns(expectedTotal);
+			myMock.Setup(x => x.multiple(It.IsAny<int>(), It.IsAny<int>())).Callback<int, int>((x, y) => actualMultip = x * y);
 
-			Assert.Equal(expectedTotal, calculator.multiple(a, b));
+			calculator.multiple(a, b);
+			Assert.Equal(expectedTotal, actualMultip);
+
+			calculator.multiple(5, 20);
+			Assert.Equal(100, actualMultip);
 		}
 
 		[Theory]
