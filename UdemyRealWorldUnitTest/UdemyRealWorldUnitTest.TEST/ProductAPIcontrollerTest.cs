@@ -125,11 +125,11 @@ namespace UdemyRealWorldUnitTest.TEST
 		{
 			Product product = _products.FirstOrDefault(x => x.Id == id);
 			mockRepo.Setup(x => x.GetById(id)).ReturnsAsync(product);
-
+			mockRepo.Setup(x => x.Delete(product));
 			var result = await aPIcontroller.DeleteProduct(id);
 
-			var okResult = Assert.IsType<NoContentResult>(result);
 			mockRepo.Verify(repo => repo.Delete(It.IsAny<Product>()), Times.Once);
+			var okResult = Assert.IsType<NoContentResult>(result);
 		}
 	}
 }
