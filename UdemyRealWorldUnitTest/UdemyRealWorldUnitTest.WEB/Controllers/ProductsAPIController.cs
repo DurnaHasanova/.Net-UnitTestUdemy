@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using UdemyRealWorldUnitTest.WEB.Helpers;
 using UdemyRealWorldUnitTest.WEB.Models;
 using UdemyRealWorldUnitTest.WEB.Repository;
 
@@ -19,6 +20,14 @@ namespace UdemyRealWorldUnitTest.WEB.Controllers
 		public ProductsAPIController(IRepository<Product> repository)
 		{
 			this.repository = repository;
+		}
+
+		[HttpGet("{a}/{b}")]
+		public IActionResult Add(int a, int b)
+		{
+			var helper = new Helper();
+
+			return Ok(helper.add(a, b));
 		}
 
 		// GET: api/ProductsAPI

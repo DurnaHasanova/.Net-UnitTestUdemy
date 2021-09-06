@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UdemyRealWorldUnitTest.WEB.Controllers;
+using UdemyRealWorldUnitTest.WEB.Helpers;
 using UdemyRealWorldUnitTest.WEB.Models;
 using UdemyRealWorldUnitTest.WEB.Repository;
 using Xunit;
@@ -17,6 +18,7 @@ namespace UdemyRealWorldUnitTest.TEST
 		private readonly Mock<IRepository<Product>> mockRepo;
 		private readonly ProductsAPIController aPIcontroller;
 		private List<Product> _products;
+		private readonly Helper helper;
 
 		public ProductAPIcontrollerTest()
 		{
@@ -26,6 +28,15 @@ namespace UdemyRealWorldUnitTest.TEST
 				new Product { Id = 1, Name = null, Price = 10, Stock = 5, Color = "red" },
 				new Product { Id = 2, Name = "Test2", Price = 9, Stock = 15, Color = "yellow" },
 				new Product { Id = 3, Name = "Test3", Price = 5, Stock = 17, Color = "green" }};
+			helper = new Helper();
+		}
+
+		[Theory]
+		[InlineData(2, 5, 7)]
+		public void Add_SampleValue_ReturnTotal(int a, int b, int result)
+		{
+			var res = helper.add(a, b);
+			Assert.Equal(result, res);
 		}
 
 		[Fact]
