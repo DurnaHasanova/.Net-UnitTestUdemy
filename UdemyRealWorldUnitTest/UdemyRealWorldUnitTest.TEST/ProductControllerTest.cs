@@ -16,13 +16,15 @@ namespace UdemyRealWorldUnitTest.TEST
 	public class ProductControllerTest
 	{
 		private readonly Mock<IRepository<Product>> _repositoryMock;
+		private readonly Mock<IRepository<Category>> _repositoryCatMock;
 		private readonly ProductsController _productController;
 		private List<Product> _products;
 
 		public ProductControllerTest()
 		{
 			_repositoryMock = new Mock<IRepository<Product>>();
-			_productController = new ProductsController(_repositoryMock.Object);
+			_repositoryCatMock = new Mock<IRepository<Category>>();
+			_productController = new ProductsController(_repositoryMock.Object, _repositoryCatMock.Object);
 			_products = new List<Product>() {
 				new Product { Id = 1, Name = null, Price = 10, Stock = 5, Color = "red" },
 				new Product { Id = 2, Name = "Test2", Price = 9, Stock = 15, Color = "yellow" },

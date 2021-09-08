@@ -33,6 +33,7 @@ namespace UdemyRealWorldUnitTest.WEB
 			});
 
 			services.AddScoped<IRepository<Product>, Repository<Product>>();
+			services.AddScoped<IRepository<Category>, Repository<Category>>();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

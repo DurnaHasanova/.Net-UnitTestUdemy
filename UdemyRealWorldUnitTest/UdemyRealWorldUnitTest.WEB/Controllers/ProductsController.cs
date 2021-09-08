@@ -13,10 +13,12 @@ namespace UdemyRealWorldUnitTest.WEB.Controllers
 	public class ProductsController : Controller
 	{
 		private readonly IRepository<Product> repository;
+		private readonly IRepository<Category> categoryrepository;
 
-		public ProductsController(IRepository<Product> repository)
+		public ProductsController(IRepository<Product> repository, IRepository<Category> catrepository)
 		{
 			this.repository = repository;
+			this.categoryrepository = catrepository;
 		}
 
 		// GET: Products
@@ -43,8 +45,10 @@ namespace UdemyRealWorldUnitTest.WEB.Controllers
 		}
 
 		// GET: Products/Create
-		public IActionResult Create()
+		public async Task<IActionResult> Create()
 		{
+			var cat = await categoryrepository.GetAll();
+			ViewData["CategoryId"] = new SelectList(cat, "Id", "Name");
 			return View();
 		}
 
@@ -53,7 +57,7 @@ namespace UdemyRealWorldUnitTest.WEB.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Create([Bind("Id,Name,Price,Stock,Color")] Product product)
+		public async Task<IActionResult> Create([Bind("Id,Name,Price,Stock,Color, CategoryId")] Product product)
 		{
 			if (ModelState.IsValid)
 			{
@@ -76,6 +80,7 @@ namespace UdemyRealWorldUnitTest.WEB.Controllers
 			{
 				return NotFound();
 			}
+			ViewData["CategoryId"] = new SelectList(await categoryrepository.GetAll(), "Id", "Name", product.CategoryId);
 			return View(product);
 		}
 
@@ -84,7 +89,7 @@ namespace UdemyRealWorldUnitTest.WEB.Controllers
 		// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Stock,Color")] Product product)
+		public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Price,Stock,Color, CategoryId")] Product product)
 		{
 			if (id != product.Id)
 			{

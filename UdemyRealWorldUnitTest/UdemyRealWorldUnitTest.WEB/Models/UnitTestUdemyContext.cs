@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using UdemyRealWorldUnitTest.WEB.Models;
 
 #nullable disable
 
@@ -18,6 +19,7 @@ namespace UdemyRealWorldUnitTest.WEB.Models
 		}
 
 		public virtual DbSet<Product> Products { get; set; }
+		public virtual DbSet<Category> Category { get; set; }
 
 		protected override void OnModelCreating(ModelBuilder modelBuilder)
 		{
